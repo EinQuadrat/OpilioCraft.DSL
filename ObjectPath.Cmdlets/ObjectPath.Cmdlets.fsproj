@@ -2,7 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+
+    <Description>PowerShell cmdlets utilizing ObjectPath.</Description>
+    <PackageTags>OpilioCraft;DSL;ObjctPath;FSharp;FParsec;PowerShell</PackageTags>
+
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DebugType>portable</DebugType>
+    <RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>True</RunAnalyzersDuringLiveAnalysis>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+
   </PropertyGroup>
 
   <ItemGroup>
