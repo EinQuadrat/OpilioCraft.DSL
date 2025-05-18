@@ -1,4 +1,4 @@
-﻿namespace OpilioCraft.DSL.StringTemplate
+﻿namespace OpilioCraft.StringTemplate
 
 // exceptions
 exception InvalidStringTemplateException of Template:string

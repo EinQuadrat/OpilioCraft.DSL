@@ -1,4 +1,4 @@
-﻿module OpilioCraft.DSL.StringTemplate.Parser
+﻿module OpilioCraft.StringTemplate.Parser
 
 open FParsec
 

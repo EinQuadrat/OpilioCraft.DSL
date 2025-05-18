@@ -1,9 +1,9 @@
-﻿namespace OpilioCraft.DSL.ObjectPath.Cmdlets
+﻿namespace OpilioCraft.ObjectPath.Cmdlets
 
 open System
 open System.Management.Automation
 
-open OpilioCraft.DSL.ObjectPath
+open OpilioCraft.ObjectPath
 
 type private ObjectPathRuntime =
     | NotInitialized
@@ -28,7 +28,7 @@ type public SelectObjectPathCommand() =
 
     // cmdlet behaviour
     override x.BeginProcessing() =
-        let runtime = new DefaultRuntime() :> OpilioCraft.DSL.ObjectPath.IRuntime
+        let runtime = new DefaultRuntime() :> OpilioCraft.ObjectPath.IRuntime
 
         match runtime.TryParse(x.ObjectPath) with
         | Some expr -> objectPath <- Loaded (runtime, expr)

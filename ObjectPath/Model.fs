@@ -1,4 +1,4 @@
-﻿namespace OpilioCraft.DSL.ObjectPath
+﻿namespace OpilioCraft.ObjectPath
 
 // exceptions
 exception InvalidObjectPathException of Path:string

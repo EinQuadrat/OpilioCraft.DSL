@@ -1,4 +1,4 @@
-﻿namespace OpilioCraft.DSL.StringTemplate
+﻿namespace OpilioCraft.StringTemplate
 
 open FParsec
 

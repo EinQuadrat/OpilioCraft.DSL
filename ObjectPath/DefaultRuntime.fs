@@ -1,4 +1,4 @@
-﻿namespace OpilioCraft.DSL.ObjectPath
+﻿namespace OpilioCraft.ObjectPath
 
 open FParsec
 

@@ -1,4 +1,4 @@
-﻿module OpilioCraft.DSL.ObjectPath.Parser
+﻿module OpilioCraft.ObjectPath.Parser
 
 open FParsec
 
