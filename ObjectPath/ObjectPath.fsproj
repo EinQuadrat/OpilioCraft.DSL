@@ -3,15 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
 
+    <VersionPrefix>1.1.0</VersionPrefix>
     <Description>JsonPath inspired Object Query Language. Intended to be used for conditions together with OpilioCraft.Lisp.</Description>
     <PackageTags>OpilioCraft;DSL;ObjectPath;FSharp;FParsec</PackageTags>
-
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <DebugType>portable</DebugType>
-    <RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
-    <RunAnalyzersDuringLiveAnalysis>True</RunAnalyzersDuringLiveAnalysis>
-    <EnableNETAnalyzers>True</EnableNETAnalyzers>
-    <AnalysisLevel>latest-recommended</AnalysisLevel>
 
   </PropertyGroup>
 
