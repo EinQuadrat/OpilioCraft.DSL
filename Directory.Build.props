@@ -6,9 +6,9 @@
 
     <PropertyGroup>
 
-        <VersionPrefix>1.0.1</VersionPrefix>
+        <VersionPrefix>1.1.0</VersionPrefix>
         <Authors>Carsten Schäfer</Authors>
-        <Copyright>Copyright (c) 2022-2024 by Carsten Schäfer</Copyright>
+        <Copyright>Copyright (c) 2022-2025 by Carsten Schäfer</Copyright>
         <RepositoryUrl>https://github.com/EinQuadrat/OpilioCraft.DSL.git</RepositoryUrl>
         <PackageTags>OpilioCraft;DSL;FSharp</PackageTags>
 

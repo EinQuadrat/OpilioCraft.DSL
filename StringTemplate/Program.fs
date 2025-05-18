@@ -10,5 +10,5 @@ let placeholderMap : PlaceholderMap =
 
 "Hallo {name|Carsten}! Wie war der Tag {date|MM.}?"
 |> Runtime.Parse
-|> Runtime.Eval placeholderMap (fun name -> failwith $"unknown placeholder: {name}")
+|> fun st -> Runtime.Eval(placeholderMap, (fun name -> failwith $"unknown placeholder: {name}"), st)
 |> System.Console.WriteLine

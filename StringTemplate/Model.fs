@@ -2,7 +2,7 @@
 
 // exceptions
 exception InvalidStringTemplateException of Template:string
-    with override x.ToString () = $"invalid string template: {x.Template}"
+    with override x.ToString() = $"invalid string template: {x.Template}"
 
 // AST nodes
 [<RequireQualifiedAccess>]

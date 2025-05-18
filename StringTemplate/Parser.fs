@@ -19,7 +19,7 @@ let pPlaceholderParts =
 
 let pPlaceholder =
     pOpeningBrace >>. pPlaceholderParts .>> pClosingBrace
-    |>> fun args -> StringTemplateElement.Placeholder (args.Head, args.Tail)
+    |>> fun args -> StringTemplateElement.Placeholder(args.Head, args.Tail)
 
 // string template
 let pStringTemplate : Parser<_> =

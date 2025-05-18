@@ -2,6 +2,7 @@
 
 open System
 open System.Management.Automation
+
 open OpilioCraft.DSL.ObjectPath
 
 type private ObjectPathRuntime =
@@ -10,8 +11,8 @@ type private ObjectPathRuntime =
 
 [<Cmdlet(VerbsCommon.Select, "ObjectPath")>]
 [<OutputType(typeof<obj>)>]
-type public SelectObjectPathCommand () =
-    inherit PSCmdlet ()
+type public SelectObjectPathCommand() =
+    inherit PSCmdlet()
 
     let mutable objectPath = NotInitialized
 
@@ -26,14 +27,14 @@ type public SelectObjectPathCommand () =
     member val UnwrapPSObject = SwitchParameter(false) with get,set
 
     // cmdlet behaviour
-    override x.BeginProcessing () =
-        let runtime = new DefaultRuntime () :> OpilioCraft.DSL.ObjectPath.IRuntime
+    override x.BeginProcessing() =
+        let runtime = new DefaultRuntime() :> OpilioCraft.DSL.ObjectPath.IRuntime
 
-        match runtime.TryParse x.ObjectPath with
+        match runtime.TryParse(x.ObjectPath) with
         | Some expr -> objectPath <- Loaded (runtime, expr)
         | _ -> failwith "invalid ObjectPath expression"
 
-    override x.ProcessRecord () =
+    override x.ProcessRecord() =
         try
             match objectPath with
             | Loaded (runtime, expr) ->

@@ -2,9 +2,9 @@
 
 open FParsec
 
-type DefaultRuntime () =
-    let mutable objectPathCache : Map<string, ObjectPath> = Map.empty
-    let mutable objectData : obj option = None
+type DefaultRuntime() =
+    let mutable objectPathCache: Map<string, ObjectPath> = Map.empty
+    let mutable objectData: obj option = None
 
     let parseObjectPath opString : ObjectPath =
         run Parser.pObjectPath opString
@@ -21,12 +21,12 @@ type DefaultRuntime () =
                 parsedObjectPath
             )
 
-    let getProperty (name : string) (theObj : obj) =
+    let getProperty (name: string) (theObj: obj) =
         theObj.GetType().GetProperty(name)
         |> Option.ofObj
         |> Option.defaultWith (fun _ -> failwith $"{theObj.GetType().FullName} has no property \"{name}\"")
 
-    let rec evalObjectPath (objectPath : ObjectPath) (theObj : obj) : obj =
+    let rec evalObjectPath (objectPath: ObjectPath) (theObj: obj) : obj =
         match objectPath with
         | [] -> theObj
 
@@ -39,7 +39,7 @@ type DefaultRuntime () =
                 try
                     pi.GetValue(theObj, [| key |])
                 with
-                | exn -> failwith $"cannot access value of property Item, key {key}: {exn.Message}"
+                    | exn -> failwith $"cannot access value of property Item, key {key}: {exn.Message}"
 
             |> evalObjectPath tail
 
@@ -51,7 +51,7 @@ type DefaultRuntime () =
                 try
                     maybePropInfo.Value.GetValue(theObj)
                 with
-                | exn -> failwith $"cannot access value of property {name}: {exn.Message}"
+                    | exn -> failwith $"cannot access value of property {name}: {exn.Message}"
                 
                 // stringify enum types to facilitate wrapping
                 |> (fun value -> if value.GetType().IsEnum then value.ToString() :> obj else value)
@@ -76,36 +76,36 @@ type DefaultRuntime () =
         member _.ObjectData
             with set value = objectData <- Some value
 
-        member _.Parse opString =
+        member _.Parse(opString) =
             opString |> getParsedObjectPath // memoize on-the-fly
 
-        member _.TryParse opString = // does not (!) memoize
+        member _.TryParse(opString) = // does not (!) memoize
             try
                 opString |> parseObjectPath |> Some
             with
                 | _ -> None
 
-        member _.Eval objectPath =
+        member _.Eval(objectPath) =
             objectData
             |> Option.map (evalObjectPath objectPath)
             |> Option.defaultWith (fun _ -> raise MissingObjectDataException)
 
-        member x.TryEval objectPath =
+        member x.TryEval(objectPath) =
             try
-                x.Eval objectPath |> Some
+                x.Eval(objectPath) |> Some
             with
                 | _ -> None
 
-        member x.EvalWithDefault objectPath defaultValue =
+        member x.EvalWithDefault(objectPath, defaultValue) =
             objectPath |> x.TryEval |> Option.defaultValue defaultValue
 
-        member x.Run opString =
+        member x.Run(opString) =
             opString |> getParsedObjectPath |> x.Eval
 
-        member x.TryRun opString =
+        member x.TryRun(opString) =
             opString |> getParsedObjectPath |> x.TryEval
             // object path itself has to be syntactically correct
 
-        member x.RunWithDefault opString defaultValue =
+        member x.RunWithDefault(opString, defaultValue) =
             opString |> x.TryRun |> Option.defaultValue defaultValue
             // object path has to be syntactically correct

@@ -2,10 +2,10 @@
 
 // exceptions
 exception InvalidObjectPathException of Path:string
-    with override x.ToString () = $"invalid object path: {x.Path}"
+    with override x.ToString() = $"invalid object path: {x.Path}"
 
 exception MissingObjectDataException
-    with override x.ToString () = "missing object data"
+    with override x.ToString() = "missing object data"
 
 // AST nodes
 [<RequireQualifiedAccess>]
@@ -24,8 +24,8 @@ type IRuntime =
 
     abstract member Eval : ObjectPath -> obj
     abstract member TryEval : ObjectPath -> obj option
-    abstract member EvalWithDefault : ObjectPath -> obj -> obj
+    abstract member EvalWithDefault : ObjectPath * obj -> obj
 
     abstract member Run : string -> obj
     abstract member TryRun : string -> obj option
-    abstract member RunWithDefault : string -> obj -> obj
+    abstract member RunWithDefault : string * obj -> obj
