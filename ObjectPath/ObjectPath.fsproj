@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
 
-    <VersionPrefix>1.2.0</VersionPrefix>
+    <VersionPrefix>2.0.0</VersionPrefix>
     <Description>JsonPath inspired Object Query Language. Intended to be used for conditions together with OpilioCraft.Lisp.</Description>
     <PackageTags>OpilioCraft;DSL;ObjectPath;FSharp;FParsec</PackageTags>
 

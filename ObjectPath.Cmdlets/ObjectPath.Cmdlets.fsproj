@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
 
-    <VersionPrefix>1.2.0</VersionPrefix>
+    <VersionPrefix>2.0.0</VersionPrefix>
     <Description>PowerShell cmdlets utilizing ObjectPath.</Description>
     <PackageTags>OpilioCraft;DSL;ObjctPath;FSharp;FParsec;PowerShell</PackageTags>
 

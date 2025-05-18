@@ -1,7 +1,7 @@
 ﻿<Project>
 
   <PropertyGroup Label="UserMacros">
-    <SolutionPrefix>OpilioCraft.DSL</SolutionPrefix>
+    <SolutionPrefix>OpilioCraft</SolutionPrefix>
   </PropertyGroup>
 
   <PropertyGroup>
